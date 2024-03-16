@@ -54,69 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline - Registration</title>
     <link rel="icon" href="/assets/images/favicon.jpg">
-    <style>
-         body {
-    background-image: url("/assets/images/registration.jpg");
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    background-size: cover; 
-    background-repeat: no-repeat; 
-    background-position: center;
-    background-attachment: fixed; 
-    margin: 0;   
-        
-    }
-    .registration-container {
-    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    background-color: rgba(255, 255, 255, 0.4);
-    padding: 40px;
-    width: 400px;
-    text-align: center;
-    }
-    .registration-container h2 {
-    margin-bottom: 20px;
-    }
-    .registration-container input[type="text"],
-    .registration-container input[type="email"],
-    .registration-container input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    }
-    .registration-container input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    }
-    .registration-container input[type="submit"]:hover {
-        background-color: green;
-    }
-    footer {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 85%;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0);
-}
-    </style>
+    <link rel="stylesheet" href="./css/registration.css">
 </head>
 <body>
     <div class="registration-container">
@@ -134,20 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p style="margin-top: 10px;"><a href="/login.php">Back to login</a>.</p>
         </form>
     </div>
-    <script>
-        function validatePassword() {
-            var password = document.getElementById("password").value;
-            var confirm_password = document.getElementById("confirm_password").value;
-
-            if (password !== confirm_password) {
-                alert("Passwords do not match");
-                document.getElementById("password").value = "";
-                document.getElementById("confirm_password").value = "";
-                return false;
-            }
-            return true;
-        }
-    </script>
+    <script src="./js/registration.js"></script>
      <footer>
         <p>&copy; 2024 Skyline Airways PH. All rights reserved.</p>
     </footer>
