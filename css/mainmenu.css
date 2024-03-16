@@ -13,44 +13,44 @@ body {
 
 body::before {
     content: "";
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: -1; 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 header {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 20px 10px; 
-    background-color: rgba(0, 0, 0, 1); 
-    width: 100%; 
-    box-sizing: border-box; 
-    margin: 0; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 .logo {
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
     padding-left: 15px;
 }
 
 .logo img {
-    height: 50px; 
-    margin-right: 15px; 
+    height: 50px;
+    margin-right: 15px;
 }
 
 .title h1 {
     margin: 0;
     color: #fff;
-    font-size: 30px; 
+    font-size: 30px;
 }
 
 nav ul {
@@ -79,8 +79,7 @@ nav ul li a:hover {
 }
 
 main {
-    
-    padding-top: 900px;
+    padding-top: 900px; /* Adjusted to match the original CSS */
     position: absolute;
     top: 50%;
     left: 50%;
@@ -88,6 +87,15 @@ main {
     text-align: center;
     color: #fff;
     z-index: 1;
+}
+
+.welcome-message {
+    top: 90px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #fff; /* Set text color */
+    z-index: 1; /* Ensure welcome message is above background */
 }
 
 main h1 {
@@ -98,8 +106,9 @@ main h1 {
 main h4 {
     font-size: 20px;
 }
+
 .button {
-    background-color: #4E8DF5; /* Change the background color to a shade of blue */
+    background-color: #4E8DF5;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -107,11 +116,12 @@ main h4 {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-top: 15px; 
+    margin-top: 15px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease; /* Smooth transition effect */
+    transition: background-color 0.3s ease;
 }
+
 .button:hover {
-    background-color: #356ab4; /* Darker shade of blue on hover */
+    background-color: #356ab4;
 }

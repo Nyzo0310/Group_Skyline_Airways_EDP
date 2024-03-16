@@ -2,7 +2,6 @@
  /* Absolute positioning for background image */
   body {
     background-image: url("/assets/images/registration.jpg");
-    font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     background-size: cover; 
     background-repeat: no-repeat; 
@@ -13,6 +12,7 @@
 
 /* Centering the container */
 .container {
+    font-family: Arial, sans-serif;
     position: absolute;
     top: 50%;
     left: 50%;
