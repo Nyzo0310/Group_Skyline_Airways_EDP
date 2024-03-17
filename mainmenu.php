@@ -23,8 +23,14 @@
             <?php
             session_start(); // Start the session
             if(isset($_SESSION['username'])) {
-                // If the user is logged in, display a logout link
-                echo '<li><a href="/logout.php">Logout</a></li>';
+                // If the user is logged in, display a welcome message which will serve as the dropdown button
+                echo '<div class="dropdown">';
+                echo '<button class="dropbtn">Hello, ' . $_SESSION['username'] . '</button>';
+                echo '<div class="dropdown-content">';
+                echo '<a href="#">Profile</a>';
+                echo '<a href="/logout.php" class="logout">Logout</a>';
+                echo '</div>';
+                echo '</div>';
             } else {
                 // If the user is not logged in, display a login link
                 echo '<li><a href="/login.php">Login</a></li>';
@@ -32,11 +38,6 @@
             ?> 
         </ul>  
     </nav>
-    <?php if(isset($_SESSION['username'])): ?>
-    <div class="welcome-message">
-        <h2 class="welcome-text">Welcome, <?php echo $_SESSION['username']; ?>!</h2>
-    </div>
-    <?php endif; ?>
 </header> 
 <main>
     <div class="content">
@@ -45,5 +46,22 @@
         <a href="/offers.php" class="button">Book Now</a>
     </div>
 </main>      
+<script>
+// JavaScript for dropdown functionality
+document.addEventListener("DOMContentLoaded", function() {
+    var dropdowns = document.getElementsByClassName("dropdown");
+    for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.getElementsByClassName("dropdown-content")[0];
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>

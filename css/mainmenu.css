@@ -22,7 +22,58 @@ body::before {
     z-index: -1;
 }
 
+/* Add or modify styles as needed */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333; /* Background color of the dropdown */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+.dropdown-content a.logout {
+    color: red; /* Color for logout link */
+}
 header {
+    font-style: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,6 +104,8 @@ header {
     font-size: 30px;
 }
 
+/* Add or modify styles as needed */
+
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -72,30 +125,42 @@ nav ul li a {
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s;
+    display: inline-block; /* Make the anchor tags inline-block */
 }
 
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
 
+/* Add this to style the dropdown button */
+nav .dropdown .dropbtn {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+nav .dropdown .dropbtn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 main {
-    padding-top: 900px; /* Adjusted to match the original CSS */
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 50%; /* Adjusted width to 80% */
     text-align: center;
     color: #fff;
     z-index: 1;
 }
 
-.welcome-message {
-    top: 90px;
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: #fff; /* Set text color */
-    z-index: 1; /* Ensure welcome message is above background */
+.content {
+    padding: 20px; /* Adjusted padding as needed */
+    margin: 0 auto; /* Center the content horizontally */
 }
 
 main h1 {
@@ -106,7 +171,6 @@ main h1 {
 main h4 {
     font-size: 20px;
 }
-
 .button {
     background-color: #4E8DF5;
     border: none;
@@ -125,3 +189,4 @@ main h4 {
 .button:hover {
     background-color: #356ab4;
 }
+
