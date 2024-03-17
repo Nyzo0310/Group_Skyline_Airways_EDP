@@ -33,7 +33,7 @@
                 echo '</div>';
             } else {
                 // If the user is not logged in, display a login link
-                echo '<li><a href="/login.php">Login</a></li>';
+                echo '<li><a href="/index.php">Login</a></li>';
             }
             ?> 
         </ul>  
