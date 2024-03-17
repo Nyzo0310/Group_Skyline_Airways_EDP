@@ -1,53 +1,11 @@
-<?php
-session_start(); // Start session at the beginning of the script
-
-// Check if the user is logged in
-if(isset($_SESSION['username'])) {
-    // If the user is logged in, redirect to mainmenu.php
-    header("Location: /mainmenu.php");
-    exit();
-}
-
-include_once 'config/database.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Prepare SQL statement to select user by username
-    $stmt = $conn->prepare("SELECT * FROM res_records WHERE res_email = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-
-    // Get the result
-    $result = $stmt->get_result();
-
-    if ($result->num_rows == 1) {
-        // User exists, verify password
-        $row = $result->fetch_assoc();
-        if (password_verify($password, $row['res_pass'])) {
-            // Password is correct, redirect to mainmenu.php
-            $_SESSION['username'] = $username;
-            header("Location: /mainmenu.php");
-            exit();
-        } else {
-            // Incorrect password
-            $errorMessage = "Invalid password. Please try again.";
-        }
-    } else {
-        // User does not exist
-        $errorMessage = "Invalid username. Please try again.";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skyline - Login</title>
-<link rel="icon" href="./assets/images/favicon.jpg">
-<link rel="stylesheet" href="./css/login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline - Main menu</title>
+    <link rel="icon" href="/assets/images/favicon.jpg">
+    <link rel="stylesheet" href="./css/mainmenu.css">
 </head>
 <body>
 <header>
@@ -59,39 +17,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
     <nav>
         <ul>
-            <li><a href="/mainmenu.php">Home</a></li>
+            <li><a href="/dashboard.php">Dashboard</a></li>
             <li><a href="#">Flights</a></li>
             <li><a href="#">Analytics</a></li>
             <?php
+            session_start(); // Start the session
             if(isset($_SESSION['username'])) {
-                // If the user is logged in, display the logout button
-                echo '<li><a href="/logout.php">Logout</a></li>';
+                // If the user is logged in, display a welcome message which will serve as the dropdown button
+                echo '<div class="dropdown">';
+                echo '<button class="dropbtn">Hello, ' . $_SESSION['username'] . '</button>';
+                echo '<div class="dropdown-content">';
+                echo '<a href="#">Profile</a>';
+                echo '<a href="/logout.php" class="logout">Logout</a>';
+                echo '</div>';
+                echo '</div>';
+            } else {
+                // If the user is not logged in, display a login link
+                echo '<li><a href="/login.php">Login</a></li>';
             }
-            ?>
-        </ul>
+            ?> 
+        </ul>  
     </nav>
-</header>
+</header> 
 <main>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm" method="post">
-            <input type="text" id="username" name="username" placeholder="Username" required autocomplete="username"><br>
-            <div style="position: relative;">
-                <input type="password" name="password" id="password" placeholder="Password" required>
-                <input type="checkbox" id="show-password">
-                <label for="show-password">Show Password</label>
-            </div><br>
-            <input type="submit" value="Login">
-            <?php if(isset($errorMessage)): ?>
-                <p id="errorMessage" style="text-align: center; margin-top: 10px; color: red;"><?php echo $errorMessage; ?></p>
-            <?php endif; ?>
-            <p style="text-align: center;"><a href="/registration.php">No account? register here</a>.</p>
-        </form>
+    <div class="content">
+        <h1>Discover Your Dream Vacation</h1>
+        <h4>Experience the ultimate getaway with our fantastic airline vacation deals. Booking your dream trip is hassle-free and convenient with us. Whether you're longing for tropical beaches, cultural exploration, or stunning natural landscapes, we've got you covered.</h4>
+        <a href="/offers.php" class="button">Book Now</a>
     </div>
-</main>
-<footer>
-    <p>&copy; 2024 Skyline Airways PH. All rights reserved.</p>
-</footer>
-<script src="./js/login.js"></script>
+</main>      
+<script>
+// JavaScript for dropdown functionality
+document.addEventListener("DOMContentLoaded", function() {
+    var dropdowns = document.getElementsByClassName("dropdown");
+    for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.getElementsByClassName("dropdown-content")[0];
+            if (dropdownContent.style.display === "block") {
+                dropdownContent.style.display = "none";
+            } else {
+                dropdownContent.style.display = "block";
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
