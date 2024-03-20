@@ -138,3 +138,46 @@ footer {
 .login-container input[type="submit"]:hover {
     background-color: green;
 }
+/* Dropdown menu styling */
+select#user_type {
+  width: 170px; /* Adjust width as needed */
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #555;
+  appearance: none; /* Remove default arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  cursor: pointer;
+}
+
+/* Hover effect for dropdown options */
+select#user_type option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Focus effect for dropdown */
+select#user_type:focus {
+  outline: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add blue border when focused */
+}
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  display: none; /* Initially hidden */
+}
+
+.notification.show {
+  display: block; /* Show when added 'show' class */
+}
+

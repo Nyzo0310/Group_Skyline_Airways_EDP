@@ -16,4 +16,4 @@ document.getElementById("username").addEventListener("input", clearErrorMessage)
             } else {
                 passwordField.type = "password";
             }
-        });
+        });  

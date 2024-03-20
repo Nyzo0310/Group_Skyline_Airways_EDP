@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyline - Main menu</title>
+    <title>Skyline - Admin Dashboard</title>
     <link rel="icon" href="/assets/images/favicon.jpg">
-    <link rel="stylesheet" href="./css/mainmenu.css">
+    <link rel="stylesheet" href="./css/admin_dasboard.css">
 </head>
 <body>
 <header>
@@ -17,8 +17,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="/dashboard.php">Dashboard</a></li>
-            <li><a href="#">Flights</a></li>
+
+            <li><a href="#">Ongoing Flights</a></li>
             <li><a href="#">Analytics</a></li>
             <?php
             session_start(); // Start the session
@@ -41,9 +41,7 @@
 </header> 
 <main>
     <div class="content">
-        <h1>Discover Your Dream Vacation</h1>
-        <h4>Experience the ultimate getaway with our fantastic airline vacation deals. Booking your dream trip is hassle-free and convenient with us. Whether you're longing for tropical beaches, cultural exploration, or stunning natural landscapes, we've got you covered.</h4>
-        <a href="/offers.php" class="button">Book Now</a>
+        <!-- Your admin dashboard content goes here -->
     </div>
 </main>      
 <script>
@@ -68,14 +66,13 @@ document.addEventListener("DOMContentLoaded", function() {
         // Prevent default link behavior
         event.preventDefault(); 
         
-        // Redirect to logout.php
-        window.location.href = "/logout.php";
-
         // Display notification
         alert("You have been logged out successfully!");
+        
+        // Redirect to logout.php after the alert is shown
+        window.location.href = "/logout.php";
     });
 });
-</script>
 </script>
 </body>
 </html>
