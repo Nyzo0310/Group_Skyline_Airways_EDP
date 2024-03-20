@@ -12,7 +12,7 @@
     <div class="logo">
         <img src="/assets/images/logo.jpg" alt="Airline Logo">
         <div class="title">
-            <h1>Skyline Airlines PH</h1>
+            <h1>Skyline Contact</h1>
         </div>
     </div>
     <nav>

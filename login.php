@@ -5,7 +5,7 @@ session_start(); // Start session at the beginning of the script
 if(isset($_SESSION['username'])) {
     // If the user is logged in, redirect to mainmenu.php or admin_dashboard.php
     if ($_SESSION['is_admin'] == 1) {
-        header("Location: /admin_dashboard.php");
+        header("Location: ../admin/admin_dashboard.php");
     } else {
         header("Location: /index.php");
     }
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['username'] = $username;
                 $_SESSION['is_admin'] = 1;
                 // Redirect to admin dashboard
-                header("Location: /admin_dashboard.php");
+                header("Location: ../admin/admin_dashboard.php");
                 exit();
             } else {
                 // Incorrect password
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="logo">
         <img src="/assets/images/logo.jpg" alt="Airline Logo">
         <div class="title">
-            <h1>Skyline Airlines PH</h1>
+            <h1>Skyline Login</h1>
         </div>
     </div>
     <nav>

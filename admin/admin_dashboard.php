@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skyline - Admin Dashboard</title>
     <link rel="icon" href="/assets/images/favicon.jpg">
-    <link rel="stylesheet" href="./css/admin_dasboard.css">
+    <link rel="stylesheet" href="../css/admin_dasboard.css">
 </head>
 <body>
 <header>
     <div class="logo">
         <img src="/assets/images/logo.jpg" alt="Airline Logo">
         <div class="title">
-            <h1>Skyline Airlines PH</h1>
+            <h1>Skyline Admin Page</h1>
         </div>
     </div>
     <nav>
