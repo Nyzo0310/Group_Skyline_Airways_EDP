@@ -24,7 +24,9 @@
         </ul>
     </nav>
 </header>
-   <div class="container">
+
+<main class="flex-container">
+    <div class="container">
         <h1>Search Flights</h1>
 
         <!-- Flight search form -->
@@ -41,11 +43,13 @@
         <!-- Display search results -->
         <h2 id="search-results-title" style="color: white;">Available Flights</h2>
         <div class="search-results" id="search-results">
+            <!-- Flight search results will be displayed here -->
         </div>
     </div>
+</main>
 
-    <!-- Add jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./js/dashboard.js"></script>
+<!-- Add jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="./js/dashboard.js"></script>
 </body>
 </html>

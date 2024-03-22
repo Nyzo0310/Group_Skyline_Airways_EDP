@@ -2,32 +2,62 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Ensure body is a column layout */
     min-height: 100vh;
-    position: relative; /* Add position relative to the body */
-    background-image: url("/assets/images/dashboardbg.jpg"); /* Add background image */
-    background-size: cover; /* Cover the entire viewport */
+    position: relative;
+    background-image: url("/assets/images/dashboardbg.jpg");
+    background-size: cover;
 }
 
 body::before { /* Pseudo-element for the overlay */
     content: "";
-    position: absolute;
+    position: fixed; /* Change from absolute to fixed */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Transparent dark background */
+    z-index: 998; /* Adjust z-index to ensure the overlay is below the header */
+    pointer-events: none; /* Ensure the overlay doesn't capture pointer events */
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure header stays above other content */
+}
+
+main {
+    margin-top: 90px; /* Adjust according to the height of your header */
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+    position: relative; /* Ensure z-index works */
+    z-index: 999; /* Adjust z-index to be above the overlay */
+}
+
 .container {
+    padding-top: 30px;
     width: 90%;
     max-width: 700px;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.2); /* Lower opacity white background */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.2); /* Adjust alpha value for lower opacity */
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    z-index: 1; /* Ensure the container appears above the overlay */
+    position: relative; /* Ensure z-index works */
+    z-index: 1000; /* Adjust z-index to be above the overlay */
 }
+/* Other styles remain unchanged */
 
 h1 {
     color: white;
@@ -44,7 +74,7 @@ label {
 
 input[type="text"],
 input[type="date"] {
-    width: 100%;
+    width: calc(100% - 30px); /* Adjust for padding */
     padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -80,19 +110,6 @@ button:hover {
 .search-results h2 {
     margin-top: 0;
     color: #333;
-}
- header {
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    padding: 20px 10px; 
-    background-color: rgba(0, 0, 0, 0.7); 
-    width: 100%; 
-    box-sizing: border-box; 
-    margin: 0; 
-    position: fixed; 
-    top: 0; 
-    left: 0; 
 }
 
 .logo {
@@ -136,4 +153,3 @@ nav ul li a {
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
